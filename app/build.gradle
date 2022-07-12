@@ -6,9 +6,33 @@ plugins {
 }
 
 android {
+
+    signingConfigs {
+
+        debug {
+
+        storeFile file('C:\\Users\\UGUR\\Documents\\GitHub\\ccif\\app\\googleplayapp.jks')
+            storePassword 'EUGAndroid22'
+            keyAlias 'keystore_app'
+            keyPassword 'EUGAndroid22'
+
+        }
+
+        release {
+
+        storeFile file('C:\\Users\\UGUR\\Documents\\GitHub\\ccif\\app\\googleplayapp.jks')
+            storePassword 'EUGAndroid22'
+            keyAlias 'keystore_app'
+            keyPassword 'EUGAndroid22'
+
+        }
+
+    }
+
     compileSdk 32
 
     defaultConfig {
+
         applicationId "com.eugurguner.ccif"
         minSdk 21
         targetSdk 32
@@ -23,8 +47,10 @@ android {
 
     buildTypes {
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
